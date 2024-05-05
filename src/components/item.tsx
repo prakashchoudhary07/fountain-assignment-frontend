@@ -37,7 +37,7 @@ const Item: FC<Track> = ({
       </div>
       <div className="p-6">
         <p className="truncate font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-          Album: {name}
+          Track: {name}
         </p>
         <p className="truncate font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
           Artist: {artist.name}
