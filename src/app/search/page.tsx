@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import List from "@/components/list";
 import InputLabel from "@/components/input-label";
 import useSearch from "@/hooks/useSearch";
 import useDebounce from "@/hooks/useDebounce";
-import Authenticate from "@/components/authenticate";
 import useProfile from "@/hooks/useProfile";
 import { redirect } from "next/navigation";
 

@@ -1,5 +1,4 @@
 "use client";
-import Authenticate from "@/components/authenticate";
 import useProfile from "@/hooks/useProfile";
 import Link from "next/link";
 import { redirect } from "next/navigation";

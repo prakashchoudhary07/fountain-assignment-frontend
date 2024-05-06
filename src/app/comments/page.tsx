@@ -1,6 +1,5 @@
 "use client";
 
-import Authenticate from "@/components/authenticate";
 import Comment from "@/components/comment";
 import useProfile from "@/hooks/useProfile";
 import {

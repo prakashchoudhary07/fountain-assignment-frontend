@@ -1,4 +1,4 @@
-import { FC, KeyboardEvent } from "react";
+import { FC } from "react";
 
 const Action: FC<any> = ({ handelClick, name, className }) => {
   return (
