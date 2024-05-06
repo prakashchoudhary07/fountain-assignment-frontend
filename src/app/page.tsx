@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import List from "@/components/list";
-import SearchInput from "@/components/search-input";
+import InputLabel from "@/components/input-label";
 import useSearch from "@/hooks/useSearch";
 import useDebounce from "@/hooks/useDebounce";
 
@@ -34,9 +34,12 @@ export default function Home() {
       </h1>
       <div className="p-2">
         <div>
-          <SearchInput
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
+          <InputLabel
+            id="search"
+            name="search"
+            label="Spotify search tracks:"
+            inputValue={searchValue}
+            setInputValue={setSearchValue}
           />
           {renderResults}
         </div>
