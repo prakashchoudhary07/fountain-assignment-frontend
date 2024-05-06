@@ -25,7 +25,10 @@ const Item: FC<Track> = ({
   id,
 }) => {
   return (
-    <div className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl min-w-48 max-w-72">
+    <div
+      className="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl min-w-48 max-w-72"
+      data-testid="search-item"
+    >
       <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl min-h-48 max-h-72">
         <Image
           src={album.images.url}
