@@ -28,13 +28,17 @@ export default function Page() {
   };
 
   return (
-    <div>
-      <h1>Nested comments</h1>
-      <Comment
-        comment={commentData}
-        addComment={addComment}
-        deleteComment={deleteComment}
-      />
-    </div>
+    <main className="flex min-h-screen flex-col p-12">
+      <h1 className="font-mono text-lg px-4 items-center">
+        Nested comments&nbsp;
+      </h1>
+      <div>
+        <Comment
+          comment={commentData}
+          addComment={addComment}
+          deleteComment={deleteComment}
+        />
+      </div>
+    </main>
   );
 }
