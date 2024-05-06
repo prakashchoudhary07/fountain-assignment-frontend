@@ -3,8 +3,8 @@
 import Comment from "@/components/comment";
 import {
   CommentStoreInterface,
-  addComment,
-  deleteComment,
+  insertComment,
+  removeComment,
 } from "@/utils/comments";
 import { useState } from "react";
 
@@ -17,13 +17,13 @@ export default function Page() {
   const [commentData, setCommentDate] =
     useState<CommentStoreInterface>(commentStore);
 
-  const handelAddComment = (parentId: number, body: string) => {
-    const comments = addComment(commentStore, parentId, body);
+  const addComment = (parentId: number, body: string) => {
+    const comments = insertComment(commentStore, parentId, body);
     setCommentDate(comments);
   };
 
-  const handelDeleteComment = (commentId: number) => {
-    const comments = deleteComment(commentStore, commentId);
+  const deleteComment = (commentId: number) => {
+    const comments = removeComment(commentStore, commentId);
     setCommentDate({ ...comments });
   };
 
@@ -32,8 +32,8 @@ export default function Page() {
       <h1>Nested comments</h1>
       <Comment
         comment={commentData}
-        addComment={handelAddComment}
-        deleteComment={handelDeleteComment}
+        addComment={addComment}
+        deleteComment={deleteComment}
       />
     </div>
   );

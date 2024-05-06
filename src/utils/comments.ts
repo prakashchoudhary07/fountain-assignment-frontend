@@ -9,7 +9,7 @@ interface CommentStoreInterface {
   items: SingleCommentInterface[];
 }
 
-const addComment = (
+const insertComment = (
   commentStore: CommentStoreInterface,
   parentId: number,
   body: string
@@ -26,13 +26,13 @@ const addComment = (
 
   let latestComment = [];
   latestComment = commentStore.items.map((ob: SingleCommentInterface) => {
-    return addComment(ob, parentId, body);
+    return insertComment(ob, parentId, body);
   });
 
   return { ...commentStore, items: latestComment };
 };
 
-const deleteComment = (
+const removeComment = (
   commentStore: CommentStoreInterface,
   commentId: number
 ) => {
@@ -42,12 +42,12 @@ const deleteComment = (
       commentStore.items.splice(i, 1);
       return commentStore;
     } else {
-      deleteComment(currentItem, commentId);
+      removeComment(currentItem, commentId);
     }
   }
 
   return commentStore;
 };
 
-export { addComment, deleteComment };
+export { insertComment, removeComment };
 export type { CommentStoreInterface, SingleCommentInterface };
