@@ -1,5 +1,5 @@
-import { expect, describe, it, vi } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { expect, describe, it } from "vitest";
+import { render, screen } from "@testing-library/react";
 import Item from "../../src/components/item";
 
 const mockTrack = {
