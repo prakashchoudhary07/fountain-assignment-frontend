@@ -18,9 +18,9 @@ export default function Home() {
   if (isLoading) {
     renderResults = "loading...";
   }
-
+  
   if (isError) {
-    renderResults = "failed to search";
+    renderResults = isError.message;
   }
 
   if (result) {
