@@ -1,9 +1,11 @@
 import { FC, useCallback, useEffect, useState } from "react";
 import Item, { Track } from "./item";
 
-type list = { list: Track[] };
+interface ListProps {
+  list: Track[];
+}
 
-const List: FC<list> = ({ list }) => {
+const List: FC<ListProps> = ({ list }) => {
   const listItems = list.map((item) => (
     <Item
       id={item.id}

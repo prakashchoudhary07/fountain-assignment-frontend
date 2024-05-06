@@ -1,6 +1,6 @@
 import { ChangeEvent, Dispatch, FC, SetStateAction } from "react";
 
-interface InputType {
+interface InputProps {
   id: string;
   name: string;
   label: string;
@@ -8,7 +8,7 @@ interface InputType {
   setInputValue: Dispatch<SetStateAction<string>>;
 }
 
-const InputLabel: FC<InputType> = ({
+const InputLabel: FC<InputProps> = ({
   name,
   id,
   label,
