@@ -1,30 +1,18 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import List from "@/components/list";
-import InputLabel from "@/components/input-label";
-import useSearch from "@/hooks/useSearch";
-import useDebounce from "@/hooks/useDebounce";
+import Authenticate from "@/components/authenticate";
+import useProfile from "@/hooks/useProfile";
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  const [searchValue, setSearchValue] = useState("");
+  const { isError, isLoading, user } = useProfile();
 
-  const debouncedSearchValue = useDebounce(searchValue, 500);
-
-  const { isError, isLoading, result } = useSearch(debouncedSearchValue);
-
-  let renderResults;
+  if (isError) {
+    redirect("/login");
+  }
 
   if (isLoading) {
-    renderResults = "loading...";
-  }
-  
-  if (isError) {
-    renderResults = isError.message;
-  }
-
-  if (result) {
-    renderResults = <List list={result} />;
+    return <div className="p-2">Loading...</div>;
   }
 
   return (
@@ -33,15 +21,24 @@ export default function Home() {
         Fountain frontend assignment&nbsp;
       </h1>
       <div className="p-2">
-        <div>
-          <InputLabel
-            id="search"
-            name="search"
-            label="Spotify search tracks:"
-            inputValue={searchValue}
-            setInputValue={setSearchValue}
-          />
-          {renderResults}
+        <div className="p-2">
+          <p>
+            <Link
+              className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+              href="/search"
+            >
+              Search
+            </Link>
+          </p>
+          <br />
+          <p>
+            <Link
+              className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+              href="/comments"
+            >
+              Comments
+            </Link>
+          </p>
         </div>
       </div>
     </main>
