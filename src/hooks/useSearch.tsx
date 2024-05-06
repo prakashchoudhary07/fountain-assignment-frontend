@@ -6,7 +6,7 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function useSearch(searchValue: string) {
   const { data, error, isLoading } = useSWR(
-    searchValue ? `${SEARCH_API_URL}?q=${searchValue}` : null,
+    searchValue.trim() ? `${SEARCH_API_URL}?q=${searchValue}` : null,
     fetcher
   );
 
