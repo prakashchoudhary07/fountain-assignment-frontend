@@ -1,20 +1,9 @@
+"use client";
 import useSWR from "swr";
+import { API_SERVICE_URL } from "@/app/constants/url";
+import { fetcher } from "@/utils/swr";
 
-const SEARCH_API_URL = "http://localhost:3001/api/v1/search";
-
-const fetcher = async (url: string) => {
-  const res = await fetch(url, { credentials: "include" });
-
-  if (!res.ok) {
-    const { message } = await res.json();
-    const error = new Error(
-      "An error occurred while fetching the data." + " " + message
-    );
-    throw error;
-  }
-  const { data } = await res.json();
-  return data;
-};
+const SEARCH_API_URL = API_SERVICE_URL + "/api/v1/search";
 
 export default function useSearch(searchValue: string) {
   const { data, error, isLoading } = useSWR(
